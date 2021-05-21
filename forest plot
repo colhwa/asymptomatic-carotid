@@ -1,0 +1,16 @@
+#Subset dataframe
+carotid2<- carotid%>%
+  select(Study, PubYear, SampleSizePts, IpsStroke, MeanFollowUp) %>%
+  mutate(xi=IpsStroke,
+         ni=SampleSizePts,
+         pi=xi/ni) %>% na.omit()
+
+#Calculate proportions (Freeman-Tukey double arcsine method)
+carotid2 <- escalc(measure="PFT", xi=xi, ni=ni, data=carotid2, add=0)	
+res <- rma(yi, vi, method="REML", data=carotid2, slab=paste(Study))
+
+#Forest plot
+forest(res, transf=transf.ipft.hm, targs=list(ni=carotid2$ni), xlim=c(-0.8,0.8),
+  refline=0, cex=.8, 
+  ilab=cbind(carotid2$PubYear, carotid2$xi, carotid2$ni, carotid2$MeanFollowUp),
+  ilab.xpos=c(-.6,-.5,-.4,-.3), digits=3)
