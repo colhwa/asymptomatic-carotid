@@ -21,3 +21,12 @@ forest(res, transf=transf.ipft.hm, targs=list(ni=carotid2$ni), xlim=c(-0.8,0.8),
   refline=0, cex=.8, 
   ilab=cbind(carotid2$PubYear, carotid2$xi, carotid2$ni, carotid2$MeanFollowUp),
   ilab.xpos=c(-.6,-.5,-.4,-.3), digits=3)
+
+#Text labels
+text(-0.8, 20, "Study ", pos=4)
+text(-.6, 20, c("PubYear"))
+text(-.5, 21, c("Ipsilateral"))
+text(-.5, 20, c("Stroke"))
+text(-.4, 20, c("SampleSize"))
+text(-.3, 20, c("FollowUp"))
+text(0.8, 20, "Proportion [95% CI]", pos=2)
