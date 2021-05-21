@@ -23,7 +23,7 @@ forest(res, transf=transf.ipft.hm, targs=list(ni=carotid2$ni), xlim=c(-0.8,0.8),
   ilab.xpos=c(-.6,-.45,-.3,-.15), digits=3)
 
 #Text labels
-par(0.7)
+par(cex=0.7)
 text(-0.8, 20, "Study ", pos=4)
 text(-.6, 20, c("PubYear"))
 text(-.45, 21, c("Ipsilateral"))
