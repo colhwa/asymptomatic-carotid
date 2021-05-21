@@ -1,3 +1,10 @@
+#Load packages
+library(metafor)
+library(tidyverse)
+
+#Load dataframe
+carotid<-read_excel("Stroke_Metaanalysis_RawData.xlsx")
+
 #Subset dataframe
 carotid2<- carotid%>%
   select(Study, PubYear, SampleSizePts, IpsStroke, MeanFollowUp) %>%
